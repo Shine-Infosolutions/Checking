@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://checking-alpha.vercel.app'],
+  origin: ['http://localhost:5173', 'https://checking-alpha.vercel.app','https://ashoka-staff.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
