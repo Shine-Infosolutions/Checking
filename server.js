@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000', 'https://your-frontend-domain.vercel.app'],
+  origin: ['http://localhost:5173', 'https://checking-alpha.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
@@ -17,7 +17,7 @@ mongoose.connect('mongodb+srv://singhaditya8052_db_user:Aditya8892@cluster0.h42a
   useUnifiedTopology: true,
 });
 
-const guestRoutes = require('./Routes/guestRoutes');
+const guestRoutes = require('../Routes/guestRoutes');
 app.use('/api/guests', guestRoutes);
 
 app.listen(PORT, () => {
