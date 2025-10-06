@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const guestController = require('../controllers/guestController');
+const guestController = require('../Controllers/guestController');
 
 router.get('/', guestController.getAllGuests);
 router.get('/search', guestController.searchGuests);

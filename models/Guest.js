@@ -23,7 +23,9 @@ const guestSchema = new mongoose.Schema({
     default: 'Not Ready',
   },
 }, {
-  timestamps: true,
+  timestamps: {
+    currentTime: () => new Date(new Date().getTime() + (5.5 * 60 * 60 * 1000))
+  }
 });
 
 module.exports = mongoose.model('Guest', guestSchema);
