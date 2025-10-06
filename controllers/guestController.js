@@ -1,5 +1,9 @@
 const Guest = require('../Models/Guest');
 
+const getIndianTime = () => {
+  return new Date(new Date().getTime() + (5.5 * 60 * 60 * 1000));
+};
+
 exports.getAllGuests = async (req, res) => {
   try {
     const guests = await Guest.find().sort({ createdAt: 1 });
@@ -26,7 +30,7 @@ exports.checkIn = async (req, res) => {
     const guest = await Guest.findByIdAndUpdate(
       req.params.id,
       {
-        checkInTime: new Date(),
+        checkInTime: getIndianTime(),
         status: 'Ready for Checkout'
       },
       { new: true }
@@ -42,7 +46,7 @@ exports.checkOut = async (req, res) => {
     const guest = await Guest.findByIdAndUpdate(
       req.params.id,
       {
-        checkOutTime: new Date(),
+        checkOutTime: getIndianTime(),
         status: 'Already Checked Out'
       },
       { new: true }
