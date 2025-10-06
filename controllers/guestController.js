@@ -1,6 +1,8 @@
-const Guest = require('../Models/Guest');
+const Guest = require('../models/Guest');
 
-
+const getIndianTime = () => {
+  return new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"}));
+};
 
 exports.getAllGuests = async (req, res) => {
   try {
