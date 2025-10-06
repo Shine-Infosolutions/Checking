@@ -7,16 +7,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: ['http://localhost:5173', 'https://checking-alpha.vercel.app','https://ashoka-staff.vercel.app'],
+  credentials: true
 }));
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://singhaditya8052_db_user:Aditya8892@cluster0.h42azqe.mongodb.net/Ashoka_CheckIn', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 const guestRoutes = require('./routes/guestRoutes');
 app.use('/api/guests', guestRoutes);
@@ -24,3 +20,5 @@ app.use('/api/guests', guestRoutes);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;
