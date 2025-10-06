@@ -26,7 +26,7 @@ exports.checkIn = async (req, res) => {
     const guest = await Guest.findByIdAndUpdate(
       req.params.id,
       {
-        checkInTime : new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+        checkInTime : new Date(),
         status: 'Ready for Checkout'
       },
       { new: true }
