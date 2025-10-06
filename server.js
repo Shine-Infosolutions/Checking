@@ -23,10 +23,7 @@ app.use(
 );
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://singhaditya8052_db_user:Aditya8892@cluster0.h42azqe.mongodb.net/Ashoka_CheckIn', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 const guestRoutes = require('./routes/guestRoutes');
 app.use('/api/guests', guestRoutes);
