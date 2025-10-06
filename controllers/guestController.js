@@ -1,7 +1,7 @@
 const Guest = require('../models/Guest');
 
 const getIndianTime = () => {
-  return new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"}));
+  return new Date(new Date().getTime() + (5.5 * 60 * 60 * 1000));
 };
 
 exports.getAllGuests = async (req, res) => {
@@ -35,6 +35,9 @@ exports.checkIn = async (req, res) => {
       },
       { new: true }
     );
+    if (!guest) {
+      return res.status(404).json({ message: 'Guest not found' });
+    }
     res.json(guest);
   } catch (error) {
     res.status(500).json({ message: error.message });
