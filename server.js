@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://singhaditya8052_db_user:Aditya8892@cluster0.h42a
   useUnifiedTopology: true,
 });
 
-const guestRoutes = require('./Routes/guestRoutes');
+const guestRoutes = require('./routes/guestRoutes');
 app.use('/api/guests', guestRoutes);
 
 app.listen(PORT, () => {
