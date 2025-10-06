@@ -28,7 +28,7 @@ exports.checkIn = async (req, res) => {
     const guest = await Guest.findByIdAndUpdate(
       req.params.id,
       {
-        checkInTime: getIndianTime(),
+        checkInTime: new Date(),
         status: 'Ready for Checkout'
       },
       { new: true }
@@ -44,7 +44,7 @@ exports.checkOut = async (req, res) => {
     const guest = await Guest.findByIdAndUpdate(
       req.params.id,
       {
-        checkOutTime: getIndianTime(),
+        checkOutTime: new Date(),
         status: 'Already Checked Out'
       },
       { new: true }

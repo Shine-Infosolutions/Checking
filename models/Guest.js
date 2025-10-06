@@ -9,6 +9,10 @@ const guestSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  workDescription: {
+    type: String,
+    default: '',
+  },
   checkInTime: {
     type: Date,
     default: null,
@@ -23,9 +27,7 @@ const guestSchema = new mongoose.Schema({
     default: 'Not Ready',
   },
 }, {
-  timestamps: {
-    currentTime: () => new Date(new Date().getTime() + (5.5 * 60 * 60 * 1000))
-  }
+  timestamps: true
 });
 
 module.exports = mongoose.model('Guest', guestSchema);
