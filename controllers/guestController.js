@@ -1,4 +1,4 @@
-const Guest = require('../Models/Guest');
+const Guest = require('../models/Guest');
 
 exports.getAllGuests = async (req, res) => {
   try {
