@@ -30,7 +30,7 @@ exports.checkIn = async (req, res) => {
     const guest = await Guest.findByIdAndUpdate(
       req.params.id,
       {
-        checkInTime : getIndianTime(),
+        checkInTime: getIndianTime(),
         status: 'Ready for Checkout'
       },
       { new: true }
