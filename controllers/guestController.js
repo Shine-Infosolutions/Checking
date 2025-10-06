@@ -1,8 +1,6 @@
 const Guest = require('../Models/Guest');
 
-const getIndianTime = () => {
-  return new Date(new Date().getTime() + (5.5 * 60 * 60 * 1000));
-};
+
 
 exports.getAllGuests = async (req, res) => {
   try {
